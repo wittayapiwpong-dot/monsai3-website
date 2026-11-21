@@ -13,6 +13,8 @@
 <meta property="og:url" content="https://monsai3.pages.dev/">
 <meta property="og:locale" content="th_TH">
 <meta property="og:image" content="https://monsai3.pages.dev/img/monsai3-banner-rub-chao-phra.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600&family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
@@ -25,6 +27,7 @@
   "url": "https://monsai3.pages.dev/",
   "telephone": "+66-90-984-8889",
   "image": "https://monsai3.pages.dev/img/monsai3-banner-rub-chao-phra.jpg",
+  "logo": "https://monsai3.pages.dev/img/logo-monsai3-full.jpg",
   "sameAs": ["https://www.facebook.com/Monsaisam"],
   "areaServed": "TH",
   "priceRange": "฿฿"
@@ -73,7 +76,8 @@ p{margin:0 0 1em;max-width:68ch}a{color:inherit}
 header{position:sticky;top:0;z-index:20;background:var(--teal);color:#fff}
 .nav{display:flex;align-items:center;gap:20px;padding:12px max(5vw,16px);max-width:1240px;margin:0 auto;flex-wrap:wrap}
 .logo{font:600 21px Prompt,sans-serif;text-decoration:none;display:flex;align-items:center;gap:10px;margin-right:auto}
-.logo svg{flex:none}
+.logo img{flex:none;border-radius:50%}
+.flogo{display:block;margin:0 auto 12px;border-radius:50%}
 .nav nav{display:flex;gap:18px;flex-wrap:wrap}.nav nav a{text-decoration:none;opacity:.9;font-size:16px;padding:6px 0}.nav nav a:hover{opacity:1;text-decoration:underline}
 .nav .btn{min-height:42px;padding:0 16px;font-size:15px}
 /* hero */
@@ -151,7 +155,7 @@ footer p{margin:0 auto 6px;max-width:none}
 <header>
  <div class="nav">
   <a class="logo" href="#top" aria-label="หม่อน สายสาม หน้าแรก">
-   <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#d4a63a"/><path d="M11 26V15a6 6 0 0 1 12 0v11z" fill="#0f3b26"/><circle cx="17" cy="15.5" r="2.4" fill="#d4a63a"/><path d="M13 25c0-3 1.8-5.5 4-5.5s4 2.5 4 5.5z" fill="#d4a63a"/></svg>
+   <img src="img/logo-monsai3.png" width="44" height="44" alt="โลโก้หม่อน สายสาม">
    หม่อน สายสาม
   </a>
   <nav aria-label="เมนูหลัก">
@@ -321,6 +325,7 @@ footer p{margin:0 auto 6px;max-width:none}
 </main>
 
 <footer>
+ <img class="flogo" src="img/logo-monsai3.png" width="88" height="88" alt="หม่อน สายสาม รับเช่า-รับซื้อ พระเครื่อง" loading="lazy">
  <p>© หม่อน สายสาม · รับเช่า-รับซื้อ พระเครื่อง · <a href="https://www.facebook.com/Monsaisam">Facebook</a></p>
  <p>รับเช่าพระสมเด็จ · หลวงพ่อทวด · พระเบญจภาคี · เหรียญคณาจารย์ · พระบูชา · วัตถุมงคล · ของเก่า · ของสะสม</p>
 </footer>
