@@ -90,8 +90,8 @@ header{position:sticky;top:0;z-index:20;background:var(--teal);color:#fff}
 .mao{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
 .mao figure{margin:0;justify-self:center;width:min(100%,480px)}
 .clips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:24px}
-.clip{aspect-ratio:9/16;max-width:340px;width:100%;justify-self:center;border-radius:20px;overflow:hidden;border:3px solid var(--mus);background:#000}
-.clip iframe{width:100%;height:100%;border:0;display:block}
+.clip{min-height:420px;max-width:326px;width:100%;justify-self:center;border-radius:20px;overflow:hidden;border:3px solid var(--mus);background:#000}
+.clip .fb-video,.clip iframe{display:block;margin:0 auto}
 @media(max-width:700px){.clips{grid-template-columns:repeat(3,78%);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.clip{scroll-snap-align:center}}
 .mao ul{padding-left:1.2em;margin:0 0 1.2em}.mao li{margin-bottom:6px}
 .wave{display:block;width:100%;height:48px;background:var(--teal)}
@@ -217,9 +217,9 @@ footer p{margin:0 auto 6px;max-width:none}
   <h2>คลิปจริงจากหม่อน สายสาม</h2>
   <p class="lede">ดูบรรยากาศการส่องพระและรับเช่าพระจริง ติดตามคลิปใหม่ได้ที่<a href="https://www.facebook.com/Monsaisam">เพจ Facebook ของร้าน</a></p>
   <div class="clips">
-   <div class="clip"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1398131218674943&show_text=false&width=320" title="คลิปหม่อน สายสาม รับเช่าพระ 1" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div>
-   <div class="clip"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F453114050536796&show_text=false&width=320" title="คลิปหม่อน สายสาม รับเช่าพระ 2" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div>
-   <div class="clip"><iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F277145288468721&show_text=false&width=320" title="คลิปหม่อน สายสาม รับเช่าพระ 3" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div>
+   <div class="clip"><div class="fb-video" data-href="https://www.facebook.com/reel/1398131218674943" data-width="320" data-show-text="false" data-allowfullscreen="true" data-lazy="true"></div></div>
+   <div class="clip"><div class="fb-video" data-href="https://www.facebook.com/reel/453114050536796" data-width="320" data-show-text="false" data-allowfullscreen="true" data-lazy="true"></div></div>
+   <div class="clip"><div class="fb-video" data-href="https://www.facebook.com/reel/277145288468721" data-width="320" data-show-text="false" data-allowfullscreen="true" data-lazy="true"></div></div>
   </div>
  </div>
 </section>
@@ -326,17 +326,21 @@ footer p{margin:0 auto 6px;max-width:none}
 </footer>
 
 <a class="btn line fab" href="https://line.me/R/ti/p/@monsai3">แอดไลน์ ส่งรูปพระ ประเมินราคาฟรี</a>
+<div id="fb-root"></div>
 <script>
 {
- const frames=[...document.querySelectorAll('#clips iframe')];
- frames.forEach(f=>f.dataset.base=f.src);
- let playing=false;
- const set=on=>{if(on===playing)return;playing=on;frames.forEach(f=>{f.src=f.dataset.base+(on?'&autoplay=true&mute=1&muted=1':'')})};
+ const players=[];let visible=false;
+ const apply=()=>players.forEach(p=>{try{p.mute();visible?p.play():p.pause()}catch(e){}});
+ window.fbAsyncInit=()=>{
+  FB.init({xfbml:true,version:'v21.0'});
+  FB.Event.subscribe('xfbml.ready',m=>{if(m.type==='video'){players.push(m.instance);try{m.instance.mute()}catch(e){}if(visible)apply()}});
+ };
  if('IntersectionObserver' in window){
-  const clipObs=new IntersectionObserver(es=>es.forEach(e=>set(e.isIntersecting)),{threshold:0.4});
+  const clipObs=new IntersectionObserver(es=>es.forEach(e=>{visible=e.isIntersecting;apply()}),{threshold:0.4});
   clipObs.observe(document.querySelector('#clips .clips'));
  }
 }
 </script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js"></script>
 </body>
 </html>
