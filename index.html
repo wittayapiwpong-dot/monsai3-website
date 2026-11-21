@@ -326,5 +326,17 @@ footer p{margin:0 auto 6px;max-width:none}
 </footer>
 
 <a class="btn line fab" href="https://line.me/R/ti/p/@monsai3">แอดไลน์ ส่งรูปพระ ประเมินราคาฟรี</a>
+<script>
+{
+ const frames=[...document.querySelectorAll('#clips iframe')];
+ frames.forEach(f=>f.dataset.base=f.src);
+ let playing=false;
+ const set=on=>{if(on===playing)return;playing=on;frames.forEach(f=>{f.src=f.dataset.base+(on?'&autoplay=true&mute=1&muted=1':'')})};
+ if('IntersectionObserver' in window){
+  const clipObs=new IntersectionObserver(es=>es.forEach(e=>set(e.isIntersecting)),{threshold:0.4});
+  clipObs.observe(document.querySelector('#clips .clips'));
+ }
+}
+</script>
 </body>
 </html>
