@@ -82,12 +82,13 @@ header{position:sticky;top:0;z-index:20;background:var(--teal);color:#fff}
 .nav .btn{min-height:42px;padding:0 16px;font-size:15px}
 /* hero */
 .hero{background:var(--teal);color:#fff;padding-top:clamp(28px,4vw,56px)}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .hero .lede{color:#dbe7dd}
 .hero .pill{display:inline-block;background:var(--mus);color:#1b2321;font:600 15px Prompt,sans-serif;padding:4px 14px;border-radius:999px;margin-bottom:16px}
 .facts{display:flex;flex-wrap:wrap;gap:10px 22px;margin:22px 0 0;padding:0;list-style:none;color:#dbe7dd;font-size:16px}
 .facts li::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--mus);margin-right:8px}
-.art{margin:0;justify-self:center;width:min(100%,460px)}
+.art{margin:0;justify-self:center;width:min(100%,560px)}
 .art img{display:block;width:100%;height:auto;border-radius:24px;border:3px solid var(--mus);box-shadow:0 24px 48px rgba(0,0,0,.35)}
 .shot{display:block;width:100%;height:auto;border-radius:20px;border:3px solid var(--mus);box-shadow:0 16px 36px rgba(0,0,0,.25)}
 .banner{margin:0 0 clamp(28px,4vw,48px)}
@@ -171,16 +172,7 @@ footer p{margin:0 auto 6px;max-width:none}
 <main id="top">
 <section class="hero band">
  <div class="wrap">
-  <div>
-   <span class="pill">มีพระเก่า พระสะสม อยู่ที่บ้าน? ประเมินฟรี ไม่กดราคา</span>
-   <h1>หม่อน สายสาม รับเช่าพระทั่วไทย ให้ราคาดี ได้เงินสดทันที</h1>
-   <p class="lede">รับเช่า-รับซื้อพระเครื่องทุกประเภท พระบูชา วัตถุมงคล ของเก่า และของสะสม ส่งรูปมาทาง LINE ประเมินราคาให้ฟรี ไม่มีค่าใช้จ่าย อยู่จังหวัดไหนก็ขายได้ นึกถึงเงิน นึกถึงหม่อน สายสาม</p>
-   <div class="row">
-    <a class="btn line" href="https://line.me/R/ti/p/@monsai3">แอดไลน์ @Monsai3</a>
-    <a class="btn ghost" href="tel:0909848889">โทร 090-984-8889</a>
-   </div>
-   <ul class="facts"><li>ให้ราคาสูง ยุติธรรม</li><li>จ่ายเงินสดหรือโอนทันที</li><li>ประเมินฟรี</li><li>รับเช่าทุกจังหวัด</li></ul>
-  </div>
+  <h1 class="vh">หม่อน สายสาม รับเช่าพระทั่วไทย ให้ราคาดี ได้เงินสดทันที</h1>
   <figure class="art">
    <img src="img/rub-mao-phra-baan-monsai3.jpg" width="900" height="1187" alt="หม่อน สายสาม ส่องพระด้วยกล้องส่องพระ รับเช่า-รับเหมาพระบ้าน เปลี่ยนพระเต็มบ้านเป็นเงินสด" fetchpriority="high">
   </figure>
